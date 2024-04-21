@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Popup</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+        .gradient-background {
+            background: linear-gradient(135deg, #000000, #064e3b);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+            border-radius: 0rem;
+            box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+        .input-style {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 0.5rem;
+            color: white;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .input-style::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .input-style:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.45);
+        }
+        .button-style {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #ff758c;
+            background: -webkit-linear-gradient(to right, #ff7eb3, #ff758c);
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .button-style:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px -1px rgba(0, 0, 0, 0.1), 0 5px 5px -3px rgba(0, 0, 0, 0.1);
+        }
+        .version-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            margin-top: auto; /* Push to the bottom */
+            text-align: center;
+            padding-top: 1rem;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Define your gradient colors */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent; /* Make the text color transparent */
+            animation: rainbow-text-animation 10s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes rainbow-text-animation {
+            0%, 100% {
+                background-position: 0 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-background">
+        <h1 class="text-3xl text-white font-bold mb-4 text-center gradient-text">CodeOpt</h1>
+        <h4 class="text-xl text-white font-medium mb-4 text-center">ChatGPT Code Optimizer for Jupyter Lab/Notebook</h4>
+        <input type="text" id="codePrefix" class="input-style" placeholder="Enter main prompt">
+        <input type="text" id="errorSuffix" class="input-style" placeholder="Enter prompt for output/error message">
+        <button id="saveSettings" class="button-style">Save Settings</button>
+        <div class="version-text">
+            Version 0.0.1
+        </div>
+        <a href="https://github.com/unnir/CodeOpt_chrome_extension" target="_blank" class="icon">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="mt-4 mx-auto">
+        </a>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
