@@ -42,7 +42,7 @@ function addChatGPTButtonToToolbar() {
                         chatGPTQuery += ' ' + errorSuffix + ' ' + outputText.trim().replace(/\n/g, ' ');
                     }
                     if (chatGPTQuery) {
-                        window.open(`https://chat.openai.com/?model=auto&q=${encodeURIComponent(chatGPTQuery)}`);
+                        window.open(`https://chatgpt.com/?model=auto&q=${encodeURIComponent(chatGPTQuery)}`);
                     } else {
                         console.error('No content found in cell.');
                     }
